@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TodoController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [TodoController::class, 'index'])->middleware('auth');
+
+Route::get('/login', [User::class, 'login'])->middleware('guest');
+Route::post('/login', [User::class, 'authentication'])->middleware('guest');
+Route::get('/register', [User::class, 'register'])->midleware('guest');
+Route::post('/register', [User::class, 'makeUser'])->middleware('guest');
