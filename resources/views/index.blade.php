@@ -18,7 +18,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td @class(['text-decoration-line-through' => $todo->checked])>{{ $todo->todo }}</td>
-                <td>{{ $todo->time }}</td>
+                <td @class(['text-decoration-line-through' => $todo->checked])>{{ $todo->time }}</td>
                 <td>
                     <form action="/check/{{ $todo->id }}" method="post" class="d-inline">
                         @csrf
