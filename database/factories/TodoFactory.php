@@ -17,7 +17,9 @@ class TodoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => mt_rand(1, 3),
+            'todo' => fake()->sentence(3),
+            'time' => fake()->time('H:i')
         ];
     }
 }
