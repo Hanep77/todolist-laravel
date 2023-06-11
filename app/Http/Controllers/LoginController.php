@@ -24,7 +24,7 @@ class LoginController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->withErrors([
+        return back()->with([
             'loginError' => 'username or password incorrect!',
         ]);
     }
